@@ -2,6 +2,8 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
+RUN mkdir /rss
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
 python3 python3-dev python3-pip python3-venv git gcc curl \
 # lxml
@@ -12,6 +14,7 @@ pkg-config libxml2-dev libxmlsec1-dev libxmlsec1-openssl \
 libjpeg-dev zlib1g-dev \
 # magic
 libmagic-dev \
+fonts-dejavu \
 && rm -rf /var/lib/apt/lists/* 
 
 # setup venv
